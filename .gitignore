@@ -1,0 +1,63 @@
+#########################################################
+## BACKEND
+#########################################################
+/backend/app/*.log
+/backend/app/*.pot
+/backend/app/*.pyc
+/backend/app/__pycache__/
+/backend/app/local_settings.py
+/backend/app/db.sqlite3
+/backend/app/db.sqlite3-journal
+/backend/app/media
+
+# local env files
+/backend/app/.env
+/backend/app/.env*.local
+
+# If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
+# in your Git repository. Update and uncomment the following line accordingly.
+backend/app/staticfiles/*
+
+#########################################################
+## WEB
+#########################################################
+# dependencies
+/web/app/node_modules 
+/web/app/.pnp
+/web/app/.pnp.js
+
+# testing
+/web/app/coverage
+
+# next.js
+/web/app/.next/
+/web/app/out/
+
+# production
+/web/app/build
+
+# misc
+/web/app/.DS_Store
+/web/app/*.pem
+
+# debug
+/web/app/npm-debug.log*
+/web/app/yarn-debug.log*
+/web/app/yarn-error.log*
+/web/app/.pnpm-debug.log*
+
+# local env files
+/web/app/.env
+/web/app/.env*.local
+
+# vercel
+/web/app/.vercel
+
+# typescript
+/web/app/*.tsbuildinfo
+/web/app/next-env.d.ts
+
+#########################################################
+## ROOT
+#########################################################
+.DS_Store

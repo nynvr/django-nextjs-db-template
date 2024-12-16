@@ -1,61 +1,61 @@
 #########################################################
-## BACKEND
+## apps/api
 #########################################################
-/backend/app/*.log
-/backend/app/*.pot
-/backend/app/*.pyc
-/backend/app/__pycache__/
-/backend/app/local_settings.py
-/backend/app/db.sqlite3
-/backend/app/db.sqlite3-journal
-/backend/app/media
+/apps/api/app/*.log
+/apps/api/app/*.pot
+/apps/api/app/*.pyc
+/apps/api/app/__pycache__/
+/apps/api/app/local_settings.py
+/apps/api/app/db.sqlite3
+/apps/api/app/db.sqlite3-journal
+/apps/api/app/media
 
 # local env files
-/backend/app/.env
-/backend/app/.env*.local
+/apps/api/app/.env
+/apps/api/app/.env*.local
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
-backend/app/staticfiles/*
+apps/api/app/staticfiles/*
 
 #########################################################
-## WEB
+## apps/web
 #########################################################
 # dependencies
-/web/app/node_modules 
-/web/app/.pnp
-/web/app/.pnp.js
+/apps/web/app/node_modules 
+/apps/web/app/.pnp
+/apps/web/app/.pnp.js
 
 # testing
-/web/app/coverage
+/apps/web/app/coverage
 
 # next.js
-/web/app/.next/
-/web/app/out/
+/apps/web/app/.next/
+/apps/web/app/out/
 
 # production
-/web/app/build
+/apps/web/app/build
 
 # misc
-/web/app/.DS_Store
-/web/app/*.pem
+/apps/web/app/.DS_Store
+/apps/web/app/*.pem
 
 # debug
-/web/app/npm-debug.log*
-/web/app/yarn-debug.log*
-/web/app/yarn-error.log*
-/web/app/.pnpm-debug.log*
+/apps/web/app/npm-debug.log*
+/apps/web/app/yarn-debug.log*
+/apps/web/app/yarn-error.log*
+/apps/web/app/.pnpm-debug.log*
 
 # local env files
-/web/app/.env
-/web/app/.env*.local
+/apps/web/app/.env
+/apps/web/app/.env*.local
 
 # vercel
-/web/app/.vercel
+/apps/web/app/.vercel
 
 # typescript
-/web/app/*.tsbuildinfo
-/web/app/next-env.d.ts
+/apps/web/app/*.tsbuildinfo
+/apps/web/app/next-env.d.ts
 
 #########################################################
 ## ROOT

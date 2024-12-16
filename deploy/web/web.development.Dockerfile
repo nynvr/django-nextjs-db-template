@@ -5,16 +5,14 @@ FROM node:20.18-slim
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY ./web/app/package*.json ./
+COPY ./apps/web/app/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the current directory contents into the container at /app
-COPY ./web/app .
-COPY ./deploy/web/web.run.sh /scripts/
-
-EXPOSE 3000
+COPY ./apps/web/app ./
+COPY ./deploy/web/web.development.run.sh /scripts/web.run.sh
 
 RUN chmod +x /scripts/web.run.sh
 CMD ["/scripts/web.run.sh"]

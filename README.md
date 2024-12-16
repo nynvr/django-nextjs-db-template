@@ -1,5 +1,7 @@
 A Django, Next.js and PostgreSQL template
 
+# Tech stack
+
 ```
 - Python: 3.12 (Double check root/.python-version and root/deploy/api/api.development.Dockerfile)
 - Django: 5.1.1
@@ -32,6 +34,7 @@ A Django, Next.js and PostgreSQL template
       - PostgreSQL
 
 # Setting up local development environment
+
 - If we intend to just run (and not develop) the project, we don't need to set up the local environment. We can just follow the Getting started section
 - If we intend to continue developing the project, we need to set up the local environment mainly because we want the IDE to be aware of the Python and Node packages requirements of our project allowing the IDE to perform code suggestions, completions, etc.
 - Python

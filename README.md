@@ -41,13 +41,13 @@ A Django, Next.js and PostgreSQL template
   - Install [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) to setup the correct Python version for our project
   - Install Python version required by the project - `$ pyenv install x.x`
   - Use / switch to required Python version - `$ pyenv local x.x`
-  - Print active Python version `$ pyenv current`
+  - Print active Python version `$ pyenv version`
   - Install Python packages `$ pip install -r apps/api/app/requirements.txt`
 - Node
   - Install [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) to setup the correct Node version for our project
   - Install Node version required by the project - `$ nvm install x.x`
   - Use / switch to required Node version - `$ nvm use x.x`
-  - Print active Python version `$ nvm current`
+  - Print active Python version `$ nvm version`
   - Install Node packages `$ npm --prefix apps/web/app install`
 - If we need to manage (update, remove, add) Python or Node packages, we need to do it inside the containers because we are using the environment that is in the container and not the host machine.
 - To execute commands inside a running container and run bash shell commands, do this - `$ docker exec -it {container-name} bash`
@@ -65,6 +65,18 @@ A Django, Next.js and PostgreSQL template
 - Use `Draw.io Integration` (VS Code Identifier: hediet.vscode-drawio) to document system architecture and, generally, create diagrams. The extension allows us to store our diagrams in our repository. Store them under `/docs` folder.
 - Use `Kanbn Extension for Visual Studio Code` (VS Code Identifier: gordonlarrigan.vscode-kanbn) to manage our to do list. The extension allows us to store our to do list in our repository. It is based on Markdown.
   - We can just delete the `/.kanbn` folder if we don't use the extension.
+
+# Pyenv commands
+
+- `$ pyenv install x.x`
+- `$ pyenv local x.x`
+- `$ pyenv version`
+
+# NVM commands
+
+- `$ nvm install x.x`
+- `$ nvm use x.x`
+- `$ nvm version`
 
 # Django commands
 

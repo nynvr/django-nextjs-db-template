@@ -1,8 +1,10 @@
 services:
 
-  db:
+  db_svc:
     container_name: project_db
-    image: postgres:alpine
+    image: postgres:17.2-alpine
+    networks:
+      - app_network
     environment:
       - POSTGRES_DB=db_name
       - POSTGRES_USER=db_user
@@ -10,40 +12,58 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  api:
+  nginx_svc:
+    container_name: project_nginx
+    build:
+      context: .
+      dockerfile: ./deploy/nginx/nginx.development.Dockerfile
+    ports:
+      - "80:80"
+      - "81:81"
+    networks:
+      - app_network
+    depends_on:
+      - api_svc
+      - web_svc
+
+  api_svc:
     container_name: project_api
     build:
       context: .
-      dockerfile: ./deploy/api/api.development.Dockerfile       # Change as needed
-    ports:
-      - "8000:8000"
+      dockerfile: ./deploy/api/api.development.Dockerfile
+    networks:
+      - app_network
     environment:
-      - DEBUG=True                                              # Change as needed
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - DEBUG=True
       - SECRET_KEY=development-django-secret
       - ALLOWED_HOSTS=*
-      - DB_HOST=db
+      - DB_HOST=db_svc
       - DB_PORT=5432
       - DB_NAME=db_name
       - DB_USER=db_user
       - DB_PASSWORD=db_pass
     depends_on:
-      - db
+      - db_svc
     volumes:
       - django_static_data:/app/staticfiles
       - django_media_data:/app/mediafiles
       - ./apps/api/app:/app
 
-  web:
+  web_svc:
     container_name: project_web
     build:
       context: .
-      dockerfile: ./deploy/web/web.development.Dockerfile      # Change as needed
-    ports:
-      - "3000:3000"
+      dockerfile: ./deploy/web/web.development.Dockerfile
+    # ports:
+    #   - "3000:3000"
+    networks:
+      - app_network
     environment:
-      - NODE_ENV=development                                   # Change as needed
+      - NODE_ENV=development
     depends_on:
-      - api
+      - api_svc
     volumes:
       - ./apps/web/app:/app
       - /app/node_modules
@@ -53,3 +73,7 @@ volumes:
   postgres_data:
   django_static_data:
   django_media_data:
+
+networks:
+  app_network:
+    driver: bridge

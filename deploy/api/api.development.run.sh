@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "BACKEND - Running in development mode..."
+echo "API - Running in development mode..."
 
 python manage.py makemigrations
 python manage.py migrate --no-input

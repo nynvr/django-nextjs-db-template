@@ -17,19 +17,21 @@ A Django, Next.js and PostgreSQL template
 - Install and start [Docker Desktop](https://www.docker.com/products/docker-desktop/). It will install both Docker and Docker Compose.
 - Run Docker Compose
   - `$ docker compose -f docker-compose.development.yml up --build`
-  - This will run 3 services,
+  - This will run 4 services,
     - api service
       - Django app
-      - `http://0.0.0.0:8000/`
-      - `http://0.0.0.0:8000/api/`
-      - `http://0.0.0.0:8000/api/auth/login`
-      - `http://0.0.0.0:8000/admin`
+      - `http://0.0.0.0:81/`
+      - `http://0.0.0.0:81/api/`
+      - `http://0.0.0.0:81/api/auth/login`
+      - `http://0.0.0.0:81/admin`
       - Create Django superuser
         - `$ docker exec -it {container-name} bash`
         - `$ python manage.py createsuperuser`
     - web service
       - Next.js app
-      - `http://0.0.0.0:3000/`
+      - `http://0.0.0.0:80/`
+    - nginx service
+      - NGINX
     - db service
       - PostgreSQL
 
